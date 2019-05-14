@@ -1,7 +1,5 @@
 package practica6;
 
-//Clonación
-
 public class Coche {
 	String matricula;
 	String atrib;
@@ -38,5 +36,20 @@ public class Coche {
 			resultado += "no dispone de información";
 		}
 		return resultado;
+	}
+	
+	public String metodoA(String modelo, String fabricante)
+	{
+		return "Es un " + modelo + fabricante + " y gasta 1,337 euros por litro.";
+	}
+	
+	public String metodoB(String modelo, String fabricante)
+	{
+		return "Es un " + modelo + fabricante + " y gasta 1,052 euros por litro.";
+	}
+	
+	public String metodoC(String modelo, String fabricante)
+	{
+		return "Es un " + modelo + fabricante + " y no necesita combustible.";
 	}
 }
