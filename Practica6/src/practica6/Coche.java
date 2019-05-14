@@ -1,55 +1,72 @@
 package practica6;
 
-public class Coche {
+public class Coche 
+{
+	private static final String EL_COCHE_CON_MATRICULA = "El coche con matrícula ";
 	String matricula;
-	String atrib;
+	String combustible;
 	String modelo;
 	String fabricante;
 
-	public Coche() {
+	public Coche()
+	{
 		matricula = "";
-		atrib = "";
+		combustible = "";
 		modelo = "";
 		fabricante = "";
 	}
 
-	public Coche(String m, String c, String mo, String f) {
+	public Coche(String m, String c, String mo, String f)
+	{
 		matricula = m;
-		atrib = c;
+		combustible = c;
 		modelo = mo;
 		fabricante = f;
 	}
 
-	public String metodo1() {
+	public String combustible() 
+	{
 		String resultado = "";
-		if (atrib == "Gasolina") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoA(modelo, fabricante);
-		} else if (atrib == "Diesel") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoB(modelo, fabricante);
-		} else if (atrib == "Híbrido") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoC(modelo, fabricante);
-		} else {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += "no dispone de información";
+
+		switch(combustible) 
+		{
+		case"Gasolina":
+			resultado += cocheMasMatricula() + metodoGasolina(modelo, fabricante);
+			break;
+
+		case"Diésel":
+			resultado += cocheMasMatricula() + metodoDiesel(modelo, fabricante);
+			break;
+
+		case"Híbrido":
+			resultado += cocheMasMatricula() + metodoHibrido(modelo, fabricante);
+			break;
+
+		default:
+			resultado += cocheMasMatricula() + " no dispone de información";
 		}
+
 		return resultado;
 	}
-	
-	public String metodoA(String modelo, String fabricante)
+
+	public String cocheMasMatricula()
 	{
-		return "Es un " + modelo + fabricante + " y gasta 1,337 euros por litro.";
+		return EL_COCHE_CON_MATRICULA + matricula + " ";
 	}
 	
-	public String metodoB(String modelo, String fabricante)
+
+	public String metodoGasolina(String modeloCoche, String fabricanteCoche)
 	{
-		return "Es un " + modelo + fabricante + " y gasta 1,052 euros por litro.";
+		return "Es un " + fabricanteCoche + modeloCoche + " y gasta 1,337 euros por litro.";
 	}
-	
-	public String metodoC(String modelo, String fabricante)
+
+	public String metodoDiesel(String modeloCoche, String fabricanteCoche)
 	{
-		return "Es un " + modelo + fabricante + " y no necesita combustible.";
+		return "Es un " + fabricanteCoche + modeloCoche + " y gasta 1,052 euros por litro.";
+	}
+
+	public String metodoHibrido(String modeloCoche, String fabricanteCoche)
+	{
+		return "Es un " + fabricanteCoche + modeloCoche +  " y no necesita combustible.";
 	}
 }
