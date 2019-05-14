@@ -1,5 +1,7 @@
 package practica6;
 
+//Clonación
+
 public class Coche {
 	String matricula;
 	String atrib;
